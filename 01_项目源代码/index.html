@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StudyFlow校园学习任务管理系统">
+    <title>StudyFlow | 智能学习管理平台</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="app-container">
+
+    <!-- 左侧导航 -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">S</div>
+            <div>
+                <strong>StudyFlow</strong>
+                <small>STUDENT WORKSPACE</small>
+            </div>
+        </div>
+
+        <div class="nav-label">工作空间</div>
+
+        <nav class="main-nav">
+            <button class="nav-item active" data-page="dashboard">
+                <span>◫</span> 数据仪表盘
+            </button>
+            <button class="nav-item" data-page="tasks">
+                <span>☷</span> 全部任务
+            </button>
+            <button class="nav-item" data-page="calendar">
+                <span>▦</span> 学习日历
+            </button>
+        </nav>
+
+        <div class="nav-label">任务状态</div>
+
+        <nav class="main-nav">
+            <button class="nav-item" data-filter="pending">
+                <span>◷</span> 待完成任务
+            </button>
+            <button class="nav-item" data-filter="completed">
+                <span>✓</span> 已完成任务
+            </button>
+            <button class="nav-item" data-filter="overdue">
+                <span>!</span> 已逾期任务
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-tip">
+                <div class="tip-icon">✦</div>
+                <strong>每天进步一点点</strong>
+                <p>合理安排学习时间，让努力看得见。</p>
+            </div>
+
+            <button class="nav-item settings-button" id="settingsBtn">
+                <span>⚙</span> 系统设置
+            </button>
+
+            <div class="version">StudyFlow V2.0.0</div>
+        </div>
+    </aside>
+
+    <!-- 主内容 -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div class="topbar-left">
+                <div class="welcome-label">YOUR PERSONAL LEARNING SPACE</div>
+                <h1 id="pageTitle">学习数据仪表盘</h1>
+                <p id="pageSubtitle">掌握学习进度，规划每一天。</p>
+            </div>
+
+            <div class="topbar-actions">
+                <button class="icon-button" id="themeToggle" title="切换主题">
+                    ◐
+                </button>
+                <button class="add-button" id="addTaskBtn">
+                    + 新建任务
+                </button>
+            </div>
+        </header>
+
+        <!-- 仪表盘页面 -->
+        <section class="page-section active" id="dashboardPage">
+
+            <div class="dashboard-banner">
+                <div>
+                    <span class="banner-tag">STUDY SMARTER</span>
+                    <h2>今天也要认真学习 ✨</h2>
+                    <p>把目标拆解成任务，让每一次努力都有记录。</p>
+                </div>
+                <div class="banner-decoration">✦</div>
+            </div>
+
+            <!-- 数据统计 -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>全部任务</span>
+                        <span class="stat-icon purple">▤</span>
+                    </div>
+                    <h2 id="totalCount">0</h2>
+                    <p>累计创建的学习任务</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>待完成</span>
+                        <span class="stat-icon blue">◷</span>
+                    </div>
+                    <h2 id="pendingCount">0</h2>
+                    <p>等待完成的任务</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>已完成</span>
+                        <span class="stat-icon green">✓</span>
+                    </div>
+                    <h2 id="completedCount">0</h2>
+                    <p>已经完成的任务</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>已逾期</span>
+                        <span class="stat-icon red">!</span>
+                    </div>
+                    <h2 id="overdueCount">0</h2>
+                    <p>需要关注的任务</p>
+                </div>
+
+            </section>
+
+            <!-- 数据分析 -->
+            <section class="analytics-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>学习数据分析</h2>
+                        <p>通过数据了解自己的学习状态</p>
+                    </div>
+                    <span class="live-tag">● 实时统计</span>
+                </div>
+
+                <div class="analytics-grid">
+
+                    <div class="panel progress-panel">
+                        <div class="panel-heading">
+                            <h3>整体完成进度</h3>
+                            <span>任务完成情况</span>
+                        </div>
+
+                        <div class="progress-content">
+                            <div class="progress-ring" id="progressRing">
+                                <div class="progress-inner">
+                                    <strong id="analyticsRate">0%</strong>
+                                    <span>完成率</span>
+                                </div>
+                            </div>
+
+                            <div class="progress-details">
+                                <div>
+                                    <span class="legend-dot green-dot"></span>
+                                    已完成
+                                    <strong id="analyticsCompleted">0</strong>
+                                </div>
+                                <div>
+                                    <span class="legend-dot blue-dot"></span>
+                                    待完成
+                                    <strong id="analyticsPending">0</strong>
+                                </div>
+                                <div>
+                                    <span class="legend-dot red-dot"></span>
+                                    已逾期
+                                    <strong id="analyticsOverdue">0</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel category-panel">
+                        <div class="panel-heading">
+                            <h3>任务分类统计</h3>
+                            <span>不同类型任务分布</span>
+                        </div>
+                        <div id="categoryChart" class="category-chart"></div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 最近任务 -->
+            <section class="panel recent-panel">
+                <div class="section-heading">
+                    <div>
+                        <h2>最近学习任务</h2>
+                        <p>快速查看当前需要处理的事项</p>
+                    </div>
+                    <button class="text-button" id="viewAllTasks">查看全部 →</button>
+                </div>
+
+                <div id="recentTaskList" class="task-list">
+                    <div class="empty-state">
+                        <div>📝</div>
+                        <h3>还没有学习任务</h3>
+                        <p>点击新建任务，开始规划学习生活。</p>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
+        <!-- 全部任务页面 -->
+        <section class="page-section" id="tasksPage">
+
+            <section class="panel task-section">
+                <div class="section-heading">
+                    <div>
+                        <h2 id="listTitle">全部学习任务</h2>
+                        <p>统一管理课程、作业、考试和个人计划</p>
+                    </div>
+                </div>
+
+                <div class="toolbar">
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="搜索任务名称或描述..."
+                    >
+
+                    <select id="categoryFilter">
+                        <option value="all">全部分类</option>
+                        <option value="课程学习">课程学习</option>
+                        <option value="作业任务">作业任务</option>
+                        <option value="考试备考">考试备考</option>
+                        <option value="个人计划">个人计划</option>
+                    </select>
+
+                    <select id="priorityFilter">
+                        <option value="all">全部优先级</option>
+                        <option value="高">高优先级</option>
+                        <option value="中">中优先级</option>
+                        <option value="低">低优先级</option>
+                    </select>
+
+                    <select id="sortFilter">
+                        <option value="date">按截止日期排序</option>
+                        <option value="priority">按优先级排序</option>
+                    </select>
+                </div>
+
+                <div id="taskList" class="task-list">
+                    <div class="empty-state">
+                        <div>📝</div>
+                        <h3>暂时没有学习任务</h3>
+                        <p>新建任务，开始管理你的学习计划。</p>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
+        <!-- 学习日历页面 -->
+        <section class="page-section" id="calendarPage">
+
+            <section class="panel calendar-panel">
+                <div class="section-heading">
+                    <div>
+                        <h2>学习日历</h2>
+                        <p>通过日历查看每天的任务安排和截止日期</p>
+                    </div>
+                </div>
+
+                <div class="calendar-toolbar">
+                    <button class="calendar-arrow" id="prevMonth">‹</button>
+                    <h3 id="calendarMonth">2026年11月</h3>
+                    <button class="calendar-arrow" id="nextMonth">›</button>
+                    <button class="today-button" id="todayBtn">今天</button>
+                </div>
+
+                <div class="calendar-weekdays">
+                    <span>周日</span>
+                    <span>周一</span>
+                    <span>周二</span>
+                    <span>周三</span>
+                    <span>周四</span>
+                    <span>周五</span>
+                    <span>周六</span>
+                </div>
+
+                <div class="calendar-grid" id="calendarGrid"></div>
+
+                <div class="calendar-legend">
+                    <span><i class="legend-dot blue-dot"></i>有学习任务</span>
+                    <span><i class="legend-dot green-dot"></i>已完成</span>
+                    <span><i class="legend-dot red-dot"></i>已逾期</span>
+                </div>
+
+                <div class="selected-date-tasks">
+                    <h3 id="selectedDateTitle">当天任务</h3>
+                    <div id="calendarTaskList" class="task-list">
+                        <div class="empty-state">
+                            <p>请选择日历中的日期查看任务。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
+        <footer class="app-footer">
+            <span>StudyFlow © 2026</span>
+            <span>让每一次学习都更有方向</span>
+        </footer>
+
+    </main>
+</div>
+
+<!-- 新建和编辑任务弹窗 -->
+<div class="modal" id="taskModal">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <div>
+                <span class="modal-kicker">TASK MANAGEMENT</span>
+                <h2 id="modalTitle">新建学习任务</h2>
+            </div>
+            <button id="closeModal" class="close-button">×</button>
+        </div>
+
+        <form id="taskForm">
+
+            <label for="taskTitle">任务名称 <span>*</span></label>
+            <input
+                id="taskTitle"
+                type="text"
+                maxlength="50"
+                placeholder="例如：完成英语六级听力练习"
+                required
+            >
+
+            <label for="taskDescription">任务描述</label>
+            <textarea
+                id="taskDescription"
+                maxlength="300"
+                placeholder="填写任务的具体内容..."
+            ></textarea>
+
+            <div class="form-row">
+                <div>
+                    <label for="taskCategory">任务分类</label>
+                    <select id="taskCategory">
+                        <option>课程学习</option>
+                        <option>作业任务</option>
+                        <option>考试备考</option>
+                        <option>个人计划</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="taskPriority">任务优先级</label>
+                    <select id="taskPriority">
+                        <option value="高">高</option>
+                        <option value="中" selected>中</option>
+                        <option value="低">低</option>
+                    </select>
+                </div>
+            </div>
+
+            <label for="taskDeadline">截止日期 <span>*</span></label>
+            <input id="taskDeadline" type="date" required>
+
+            <div class="modal-actions">
+                <button type="button" id="cancelBtn" class="secondary-button">取消</button>
+                <button type="submit" class="primary-button">保存任务</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<!-- 系统设置弹窗 -->
+<div class="modal" id="settingsModal">
+    <div class="modal-content settings-content">
+        <div class="modal-header">
+            <div>
+                <span class="modal-kicker">PREFERENCES</span>
+                <h2>系统设置</h2>
+            </div>
+            <button id="closeSettings" class="close-button">×</button>
+        </div>
+
+        <div class="setting-item">
+            <div>
+                <strong>外观主题</strong>
+                <p>选择你喜欢的界面主题</p>
+            </div>
+            <select id="themeSelect">
+                <option value="light">浅色模式</option>
+                <option value="dark">深色模式</option>
+            </select>
+        </div>
+
+        <div class="setting-item">
+            <div>
+                <strong>数据导出</strong>
+                <p>将学习任务备份为JSON文件</p>
+            </div>
+            <button id="exportBtn" class="secondary-button">导出数据</button>
+        </div>
+
+        <div class="setting-item">
+            <div>
+                <strong>数据导入</strong>
+                <p>从备份文件恢复学习任务</p>
+            </div>
+            <button id="importBtn" class="secondary-button">导入数据</button>
+        </div>
+
+        <input
+            type="file"
+            id="importFile"
+            accept=".json,application/json"
+            hidden
+        >
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

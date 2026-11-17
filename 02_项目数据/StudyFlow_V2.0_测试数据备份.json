@@ -1,0 +1,117 @@
+{
+  "app": "StudyFlow",
+  "version": "2.0.0",
+  "exportTime": "2026-11-14T14:48:23.890Z",
+  "tasks": [
+    {
+      "id": "ed56c172-4369-494d-bee4-dfcebcb603d0",
+      "title": "完成英语六级听力练习",
+      "description": "完成六级英语听力",
+      "category": "个人计划",
+      "priority": "高",
+      "deadline": "2026-11-21",
+      "completed": false,
+      "createdAt": "2026-11-14T09:29:17.804Z",
+      "completedAt": null
+    },
+    {
+      "id": "75dd9ebd-47a4-4312-ace7-52cb6376efa8",
+      "title": "高数学习",
+      "description": "完成作业",
+      "category": "作业任务",
+      "priority": "中",
+      "deadline": "2026-11-15",
+      "completed": false,
+      "createdAt": "2026-11-14T09:31:52.938Z",
+      "completedAt": null
+    },
+    {
+      "id": "677a8395-0cb6-4da4-bbe7-f2ace69bf199",
+      "title": "数据库课程作业",
+      "description": "",
+      "category": "课程学习",
+      "priority": "中",
+      "deadline": "2026-11-20",
+      "completed": false,
+      "createdAt": "2026-11-14T10:40:13.892Z",
+      "completedAt": null
+    },
+    {
+      "id": "14a15609-0d74-4c60-bd58-85b33e0c923e",
+      "title": "Java编程练习",
+      "description": "",
+      "category": "课程学习",
+      "priority": "高",
+      "deadline": "2026-11-22",
+      "completed": false,
+      "createdAt": "2026-11-14T10:40:39.146Z",
+      "completedAt": null
+    },
+    {
+      "id": "2be51086-e723-485d-aced-1c3868f31dc6",
+      "title": "阅读英语文章",
+      "description": "",
+      "category": "考试备考",
+      "priority": "中",
+      "deadline": "2026-11-14",
+      "completed": false,
+      "createdAt": "2026-11-14T10:43:30.800Z",
+      "completedAt": null
+    },
+    {
+      "id": "82a54fe1-18fe-4a14-9350-35db91fd54da",
+      "title": "项目开发报告",
+      "description": "",
+      "category": "课程学习",
+      "priority": "中",
+      "deadline": "2026-11-25",
+      "completed": false,
+      "createdAt": "2026-11-14T10:44:12.911Z",
+      "completedAt": null
+    },
+    {
+      "id": "d42aa638-259a-48c3-963c-d6ff44ddcba0",
+      "title": "计算机三级复习",
+      "description": "",
+      "category": "考试备考",
+      "priority": "中",
+      "deadline": "2026-11-27",
+      "completed": false,
+      "createdAt": "2026-11-14T10:44:30.340Z",
+      "completedAt": null
+    },
+    {
+      "id": "27b85230-0097-4509-846f-c1fd5f8a174f",
+      "title": "整理本周学习笔记",
+      "description": "",
+      "category": "个人计划",
+      "priority": "低",
+      "deadline": "2026-11-30",
+      "completed": false,
+      "createdAt": "2026-11-14T10:45:11.554Z",
+      "completedAt": null
+    },
+    {
+      "id": "2e353566-8238-4ad9-b481-b7adfd1b8f50",
+      "title": "完成实训作业",
+      "description": "",
+      "category": "作业任务",
+      "priority": "中",
+      "deadline": "2026-11-14",
+      "completed": true,
+      "createdAt": "2026-11-14T10:46:29.256Z",
+      "completedAt": "2026-11-14T14:31:52.079Z"
+    },
+    {
+      "id": "3da4d85e-0b00-4bb7-b8b1-f987e02df8d4",
+      "title": "复习数据结构",
+      "description": "",
+      "category": "课程学习",
+      "priority": "中",
+      "deadline": "2026-11-28",
+      "completed": false,
+      "createdAt": "2026-11-14T10:47:18.133Z",
+      "completedAt": null
+    }
+  ]
+}
